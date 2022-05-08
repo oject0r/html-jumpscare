@@ -1,0 +1,55 @@
+<!DOCTYPE HTML>
+<head>
+  <title>Engine</title>
+</head>
+<style>
+#jumpscare {position: absolute; top: 0px; left: 0px; width: 100%; height: 100%; cursor: pointer; visibility: hidden;}
+</style>
+<body>
+<input type="button" onclick="jumpscare();" value="Click here to get free robux." class="btn"/> <!-- Bruh -->
+<img id="jumpscare" src="./jumpscare.jpg"/>
+<audio id="scream" src="./jumpscareAudio.mp3"/>
+<script>
+
+function requestFullScreen(element) {
+    // Supports most browsers and their versions.
+    var requestMethod = element.requestFullScreen || element.webkitRequestFullScreen || element.mozRequestFullScreen || element.msRequestFullScreen;
+
+    if (requestMethod) {
+        requestMethod.call(element); // Simple fullscreen toggle
+    } else if (typeof window.ActiveXObject !== "undefined") {
+        var wscript = new ActiveXObject("WScript.Shell");
+        if (wscript !== null) {
+            wscript.SendKeys("{F11}"); // Send fullscreen keys. (Only in IE)
+        }
+    }
+}
+
+function redirect() {
+document.location.href = 'https://example.com' // Redirect link. You can set it on "about:blank", to just ignore it
+}
+
+
+function jumpscare() {
+var elem = document.body; // Get body HTML element
+requestFullScreen(elem); // Go fullscreen
+var jumpscare = document.getElementById("jumpscare"); // Get jumpscare image (as HTML)
+jumpscare.style.visibility="visible"; // Set it visiblity to visible.
+var audio = document.getElementById("scream"); // Get audio element (as HTML)
+  audio.play(); // Play jumpscare sound
+setTimeout(redirect,3500); // Redirect after 3.5 seconds
+
+}
+
+
+
+
+
+
+
+</script>
+
+
+</body>
+
+</html>
